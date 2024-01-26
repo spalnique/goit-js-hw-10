@@ -63,13 +63,13 @@ button {
 }
 
 body > .back-button {
-  margin: 20px 0 20px 20px;
+  margin: 20px 0 10px 20px;
   width: max-content;
   min-width: unset;
   align-self: flex-start;
 }
 
-.back-button:last-of-type {
+body > .back-button:last-of-type {
   margin-bottom: calc((100vh / 2) - 157px);
 }
 
@@ -106,6 +106,16 @@ body > .back-button {
   margin-bottom: 32px;
 }
 
+#datetime-picker:focus-within {
+  border-radius: 4px;
+  border: 1px solid #4e75ff;
+}
+
+#datetime-picker:hover {
+  border-radius: 4px;
+  border: 1px solid #000;
+}
+
 [data-start] {
   color: #989898;
   font-family: '' Montserrat '';
@@ -116,13 +126,24 @@ body > .back-button {
   padding: 8px 16px;
   border: none;
   border-radius: 8px;
-  background: #cfcfcf;
+  background-color: #cfcfcf;
+  cursor: pointer;
+}
+
+.js-enabled {
+  background-color: #4e75ff;
+  color: aliceblue;
+}
+
+.js-enabled:hover {
+  background-color: #6c8cff;
 }
 
 .timer {
   display: flex;
   column-gap: 24px;
   justify-content: center;
+  pointer-events: none;
 }
 
 .field {
@@ -146,4 +167,37 @@ body > .back-button {
   font-size: 16px;
   line-height: 1.5;
   text-transform: uppercase;
+}
+
+.flatpickr-calendar {
+  border-radius: 8px !important;
+  background: #f5f5f5 !important;
+}
+
+span.flatpickr-day.today {
+  border-color: #4e75ff !important;
+  background: transparent !important;
+}
+
+span.flatpickr-day.selected {
+  background-color: #4e75ff !important;
+}
+
+span.flatpickr-day:hover {
+  background-color: #c1c1c1 !important;
+}
+
+.js-disabled {
+  border: 1px solid #808080 !important;
+  border-radius: 4px !important;
+  background: #fafafa !important;
+  color: #808080 !important;
+  font-family: 'Montserrat' !important;
+  font-size: 16px !important;
+  line-height: 1.5 !important;
+  letter-spacing: 0.04em !important;
+}
+
+.js-disabled:hover {
+  border: 1px solid #808080 !important;
 }
