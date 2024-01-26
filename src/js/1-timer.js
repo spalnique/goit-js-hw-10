@@ -2,6 +2,7 @@ import flatpickr from 'flatpickr';
 import 'flatpickr/dist/flatpickr.min.css';
 import izitoast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
+import errorIcon from '../img/izitoast-icon.svg';
 
 class UserTimer {
   static #second = 1000;
@@ -89,7 +90,19 @@ flatpickr('#datetime-picker', {
     console.log(selectedDates[0]);
     const timer = new UserTimer(selectedDates[0]);
     if (!UserTimer.validateDate(selectedDates[0])) {
-      izitoast.error();
+      izitoast.show({
+        class: 'js-izitoast-message',
+        message: 'Please choose a date in the future',
+        messageColor: '#FFFFFF',
+        messageSize: '16px',
+        position: 'topRight',
+        backgroundColor: '#EF4040',
+        progressBarColor: '#B51B1B',
+        iconUrl: errorIcon,
+        displayMode: 'replace',
+        closeOnEscape: true,
+        pauseOnHover: false,
+      });
       return;
     }
     const isValidDate = setInterval(() => {
