@@ -47,12 +47,16 @@ class UserTimer {
     return { days, hours, minutes, seconds };
   }
 
-  static isDateValid(date) {
+  static isValidDate(date) {
     return date - new Date() > 0 ? true : false;
   }
 
+  static addLeadingZero(value) {
+    return value.padStart(2, '0');
+  }
+
   startTimer(date) {
-    if (UserTimer.isDateValid(date)) {
+    if (UserTimer.isValidDate(date)) {
       this.startButton.classList.remove('js-enabled');
       this.input.classList.add('js-disabled');
       this.input.disabled = true;
@@ -60,21 +64,19 @@ class UserTimer {
         const timeDiff = date - new Date();
         const timeRemaining = this.#convertMs(timeDiff);
         console.log('tick');
-        this.daysElement.textContent = String(timeRemaining.days).padStart(
-          2,
-          '0'
+        this.daysElement.textContent = UserTimer.addLeadingZero(
+          String(timeRemaining.days)
         );
-        this.hoursElement.textContent = String(timeRemaining.hours).padStart(
-          2,
-          '0'
+        this.hoursElement.textContent = UserTimer.addLeadingZero(
+          String(timeRemaining.hours)
         );
-        this.minutesElement.textContent = String(
-          timeRemaining.minutes
-        ).padStart(2, '0');
-        this.secondsElement.textContent = String(
-          timeRemaining.seconds
-        ).padStart(2, '0');
-        if (!UserTimer.isDateValid(date)) {
+        this.minutesElement.textContent = UserTimer.addLeadingZero(
+          String(timeRemaining.minutes)
+        );
+        this.secondsElement.textContent = UserTimer.addLeadingZero(
+          String(timeRemaining.seconds)
+        );
+        if (!UserTimer.isValidDate(date)) {
           this.input.disabled = false;
           document
             .querySelector('#datetime-picker')
@@ -106,7 +108,7 @@ function onClose(selectedDates) {
   console.log(selectedDates[0]);
   const closeTimestamp = Date.now();
   const timer = new UserTimer(selectedDates[0], userLinks);
-  if (!UserTimer.isDateValid(selectedDates[0])) {
+  if (!UserTimer.isValidDate(selectedDates[0])) {
     showMessage('Please choose a date in the future');
     return;
   }
@@ -116,7 +118,7 @@ function onClose(selectedDates) {
     showMessage('Selected date is not valid anymore');
   }, selectedDates[0] - closeTimestamp);
 
-  if (UserTimer.isDateValid(selectedDates[0])) {
+  if (UserTimer.isValidDate(selectedDates[0])) {
     timer.startButton.classList.add('js-enabled');
     timer.startButton.disabled = false;
     timer.startButton.addEventListener('click', () => {
