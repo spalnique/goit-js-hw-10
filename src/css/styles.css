@@ -219,7 +219,7 @@ span.flatpickr-day:hover {
   margin-right: 15px !important;
 }
 
-.js-izitoast-message button.iziToast-close {
+button.js-izitoast-close {
   color: #fff !important;
 }
 
@@ -324,5 +324,5 @@ form.form input[type='radio']:hover {
 }
 
 .js-izitoast-message {
-  width: 350px !important;
+  width: 380px !important;
 }

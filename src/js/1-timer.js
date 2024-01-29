@@ -142,5 +142,13 @@ function showMessage(messageText) {
     close: false,
     closeOnEscape: true,
     pauseOnHover: false,
+    buttons: [
+      [
+        `<button type="button" style="background-color: transparent;"><img src=${closeIcon}></button>`,
+        function (instance, toast) {
+          instance.hide({ transitionOut: 'fadeOut' }, toast);
+        },
+      ],
+    ],
   });
 }

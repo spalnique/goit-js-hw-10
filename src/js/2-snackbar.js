@@ -39,10 +39,10 @@ function showMessage(messageText, delay) {
     progressBarColor: messageText.includes('Fulfilled') ? '#326101' : '#B51B1B',
     iconUrl: messageText.includes('Fulfilled') ? fulfilledIcon : rejectedIcon,
     close: false,
-    closeOnEscape: true,
-    pauseOnHover: false,
   });
 }
+
+//////////////////////////////////////////////////////////////////////////////////
 
 const refs = {
   form: document.querySelector('.form'),
@@ -55,12 +55,10 @@ const refs = {
 refs.fieldset.addEventListener('click', e => {
   if (e.target.nodeName === 'INPUT') {
     refs.isSuccess = e.target.value === 'fulfilled' ? true : false;
-    console.log(refs.isSuccess);
   }
 });
 
 refs.form.addEventListener('submit', e => {
-  console.log(e.target.children);
   e.preventDefault();
   refs.delay = refs.delayInput.value;
   makePromise();
