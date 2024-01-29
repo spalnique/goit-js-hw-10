@@ -41,7 +41,6 @@ function showMessage(messageText, delay) {
     close: false,
     closeOnEscape: true,
     pauseOnHover: false,
-    timeout: 60000,
   });
 }
 
