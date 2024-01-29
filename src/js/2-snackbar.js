@@ -16,10 +16,9 @@ function makePromise() {
     }, delay);
   });
 
-  promise.then(
-    fulfilled => showMessage(fulfilled, delay),
-    rejected => showMessage(rejected, delay)
-  );
+  promise
+    .then(fulfilled => showMessage(fulfilled, delay))
+    .catch(rejected => showMessage(rejected, delay));
 }
 
 function showMessage(messageText, delay) {
