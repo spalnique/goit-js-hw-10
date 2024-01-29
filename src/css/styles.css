@@ -216,8 +216,113 @@ span.flatpickr-day:hover {
   font-family: 'Montserrat', sans-serif !important;
   font-weight: 700 !important;
   letter-spacing: 0.5px;
+  margin-right: 15px !important;
 }
 
 .js-izitoast-message button.iziToast-close {
   color: #fff !important;
+}
+
+/* ============= snackbar ============= */
+
+button[type='submit'] {
+  color: aliceblue;
+  background-color: #4e75ff;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  transition: box-shadow 250ms cubic-bezier(0.47, 0, 0.745, 0.715),
+    background-color 250ms cubic-bezier(0.47, 0, 0.745, 0.715);
+  font-family: 'Montserrat';
+}
+button[type='submit']:hover,
+button[type='submit']:focus {
+  background-color: #6c8cff;
+  box-shadow: 0 0 5px 1px rgba(112, 128, 144, 0.3);
+}
+
+form.form {
+  width: 360px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+form.form > label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+form.form input[name='delay'] {
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #808080;
+  color: #2e2f42;
+  font-family: 'Montserrat';
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+}
+
+form.form input[name='delay']:hover {
+  border: 1px solid #000;
+}
+
+form.form input[name='delay']:focus-within {
+  border: 1px solid #4e75ff;
+  outline: none;
+}
+
+form.form fieldset {
+  padding: 12px 0 12px;
+  border-radius: 4px;
+  border: 1px solid #808080;
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+  color: #2e2f42;
+  font-family: 'Montserrat';
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+}
+
+form.form fieldset:hover {
+  border: 1px solid #000;
+}
+
+form.form legend {
+  margin-left: 28px;
+  padding: 3px;
+  color: #2e2f42;
+  font-family: 'Montserrat';
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+}
+
+form.form input[type='radio'] {
+  accent-color: #4e75ff;
+  scale: 1.5;
+  margin-right: 8px;
+  color: #2e2f42;
+  font-family: 'Montserrat';
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+}
+
+form.form input[type='radio']:hover {
+  accent-color: #6c8cff;
+  scale: 1.5;
+}
+
+.js-izitoast-message {
+  width: 350px !important;
 }
