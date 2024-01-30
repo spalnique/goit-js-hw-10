@@ -48,7 +48,7 @@ class UserTimer {
   }
 
   static isValidDate(date) {
-    return date - new Date() > 0 ? true : false;
+    return date - Date.now() > 0 ? true : false;
   }
 
   static addLeadingZero(value) {
@@ -61,7 +61,7 @@ class UserTimer {
       this.input.classList.add('js-disabled');
       this.input.disabled = true;
       this.#intervalID = setInterval(() => {
-        const timeDiff = date - new Date();
+        const timeDiff = date - Date.now();
         const timeRemaining = this.#convertMs(timeDiff);
         console.log('tick');
         this.daysElement.textContent = UserTimer.addLeadingZero(
